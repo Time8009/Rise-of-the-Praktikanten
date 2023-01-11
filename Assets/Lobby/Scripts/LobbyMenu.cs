@@ -9,25 +9,30 @@ public class LobbyMenu : MonoBehaviour
     private GameObject OptionsMenu;
 
     [SerializeField]
-    private TMP_Dropdown qualityDropdown;
+    private TMP_Dropdown QualityDropdown;
+
+    [SerializeField]
+    private TMP_Text VersionText;
 
     private void Start()
     {
         if (OptionsMenu != null)
             OptionsMenu.SetActive(false);
 
-        qualityDropdown.options.Clear();
+        VersionText.text = "Version: " + Application.version;
+
+        QualityDropdown.options.Clear();
         foreach (string qualityName in QualitySettings.names)
         {
-            qualityDropdown.options.Add(new TMP_Dropdown.OptionData(qualityName));
+            QualityDropdown.options.Add(new TMP_Dropdown.OptionData(qualityName));
         }
         int qualityLevel = PlayerPrefs.GetInt("Quality", QualitySettings.GetQualityLevel());
 
         QualitySettings.SetQualityLevel(qualityLevel);
-        qualityDropdown.value = qualityLevel;
-        qualityDropdown.RefreshShownValue();
+        QualityDropdown.value = qualityLevel;
+        QualityDropdown.RefreshShownValue();
 
-        qualityDropdown.onValueChanged.AddListener(SetQuality);
+        QualityDropdown.onValueChanged.AddListener(SetQuality);
     }
 
     public void StartGame()
