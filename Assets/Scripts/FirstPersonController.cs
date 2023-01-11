@@ -129,9 +129,9 @@ namespace StarterAssets
 		private void crouch()
         {
 			if (Input.GetKey(KeyCode.LeftControl))
-				_controller.height = charHeight / 2;
+				_controller.height = Mathf.Lerp(_controller.height, charHeight / 2, _fallTimeoutDelta);
 			else
-				_controller.height = charHeight;
+				_controller.height = Mathf.Lerp(_controller.height, charHeight, _fallTimeoutDelta);
 		}
 
 		private void GroundedCheck()
