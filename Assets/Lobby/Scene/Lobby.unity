@@ -331,6 +331,24 @@ MonoBehaviour:
   minIntensity: 2
   maxIntensity: 10
   flickerSpeed: 5
+--- !u!1 &461182259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6910234772635581601, guid: 662b1f5fedff1cf48a5551018af747f6, type: 3}
+  m_PrefabInstance: {fileID: 6910234772778510738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &461182265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461182259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a715e28af684e4798e29aea812a08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSize: 1.1
 --- !u!1 &625473660
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +446,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &855625742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6910234771955923356, guid: 662b1f5fedff1cf48a5551018af747f6, type: 3}
+  m_PrefabInstance: {fileID: 6910234772778510738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &855625748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855625742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a715e28af684e4798e29aea812a08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSize: 1.1
 --- !u!1 &1140251286
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +710,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1693269916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6910234771250402830, guid: 662b1f5fedff1cf48a5551018af747f6, type: 3}
+  m_PrefabInstance: {fileID: 6910234772778510738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1693269922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693269916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a715e28af684e4798e29aea812a08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSize: 1.1
 --- !u!1001 &6871734740489794980
 PrefabInstance:
   m_ObjectHideFlags: 0

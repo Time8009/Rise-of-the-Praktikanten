@@ -1650,6 +1650,7 @@ GameObject:
   - component: {fileID: 6910234771250402829}
   - component: {fileID: 6910234771250402828}
   - component: {fileID: 6910234771250402867}
+  - component: {fileID: 1693269922}
   m_Layer: 5
   m_Name: CloseApplication
   m_TagString: Untagged
@@ -1792,6 +1793,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1693269922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910234771250402830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a715e28af684e4798e29aea812a08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSize: 1.1
 --- !u!1 &6910234771603274136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,6 +2007,7 @@ GameObject:
   - component: {fileID: 6910234771955923331}
   - component: {fileID: 6910234771955923330}
   - component: {fileID: 6910234771955923329}
+  - component: {fileID: 855625748}
   m_Layer: 5
   m_Name: StartGame
   m_TagString: Untagged
@@ -2135,6 +2150,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &855625748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910234771955923356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a715e28af684e4798e29aea812a08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSize: 1.1
 --- !u!1 &6910234772006684114
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,6 +2427,7 @@ GameObject:
   - component: {fileID: 6910234772635581604}
   - component: {fileID: 6910234772635581607}
   - component: {fileID: 6910234772635581610}
+  - component: {fileID: 461182265}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -2541,6 +2570,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &461182265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910234772635581601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a715e28af684e4798e29aea812a08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HoverSize: 1.1
 --- !u!1 &6910234772674715344
 GameObject:
   m_ObjectHideFlags: 0
@@ -2883,6 +2925,7 @@ GameObject:
   - component: {fileID: 6528956827592059373}
   - component: {fileID: 7414534070126056949}
   - component: {fileID: 8531276671464702670}
+  - component: {fileID: 2078307082640700347}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2948,3 +2991,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2078307082640700347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8845710063345678578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5a9b2194fb49445beb77223d46d0e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  URL: https://chat.openai.com/chat
+  HoverSize: 1.1
