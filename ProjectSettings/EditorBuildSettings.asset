@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Lobby/Scene/Lobby.unity
     guid: 4586048b01054dd4780c356a5351cd07
   - enabled: 1
+    path: Assets/Scenes/wakeup.unity
+    guid: f37ebc985479d83459b390395c384ae8
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 707acc8dffb72b144bb1ffbe1c965f3d
   m_configObjects: {}
