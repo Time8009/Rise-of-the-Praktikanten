@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
+using System;
 
 public class LobbyMenu : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class LobbyMenu : MonoBehaviour
 
     [SerializeField]
     private TMP_Text VersionText;
+
+    [SerializeField]
+    private Slider MouseSensitivitySlider;
 
     private void Start()
     {
@@ -32,8 +37,20 @@ public class LobbyMenu : MonoBehaviour
         QualityDropdown.value = qualityLevel;
         QualityDropdown.RefreshShownValue();
 
+        QualityDropdown.onValueChanged.RemoveAllListeners();
         QualityDropdown.onValueChanged.AddListener(SetQuality);
+
+        float MouseSensitivity = PlayerPrefs.GetFloat("mouseSensitivity", 1);
+        MouseSensitivitySlider.value = MouseSensitivity;
+        MouseSensitivitySlider.onValueChanged.RemoveAllListeners();
+        MouseSensitivitySlider.onValueChanged.AddListener(MouseSensitivitySliderChanged);
     }
+
+    private void MouseSensitivitySliderChanged(float value)
+    {
+        PlayerPrefs.SetFloat("mouseSensitivity", value);
+        PlayerPrefs.Save();
+    }    
 
     public void StartGame()
     {
