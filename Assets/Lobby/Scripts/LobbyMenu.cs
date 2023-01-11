@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class LobbyMenu : MonoBehaviour
+{
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);    
+    }
+
+    public void Options()
+    {
+        //ToDO
+    }
+
+    public void CloseApplication()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+}
