@@ -12,7 +12,7 @@ public class PlayerInteract : MonoBehaviour {
     private PlayerUI PlayerUI;
     private StarterAssetsInputs inputManager;
     void Start() {
-        cam = GetComponent<FirstPersonController>().cam;
+        cam = Camera.main;
         PlayerUI = GetComponent<PlayerUI>();
         inputManager = GetComponent<StarterAssetsInputs>();
     }

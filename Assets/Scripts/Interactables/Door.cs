@@ -18,6 +18,8 @@ public class Door : Interactable
     protected override void Interact()
     {
         doorOpen = !doorOpen;
-        door.GetComponent<Animator>().SetBool("IsOpen", doorOpen);
+
+        door.SetActive(false);
+        //door.GetComponent<Animator>().SetBool("IsOpen", doorOpen);
     }
 }
