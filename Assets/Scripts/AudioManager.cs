@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+
 [System.Serializable]
 public class AudioSound
 {
@@ -32,14 +33,6 @@ public class AudioSound
 
     }
 }
-
-
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Audio;
-using System;
 
 public class AudioManager : MonoBehaviour
 {
@@ -73,7 +66,7 @@ public class AudioManager : MonoBehaviour
     }
     public void Play(string name)
     {
-        AudioSound s = Array.Find(sounds, sound => sound.name == name);
+        AudioSound s = System.Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
     }
 
