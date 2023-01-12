@@ -19,7 +19,6 @@ public class Door : Interactable
     {
         doorOpen = !doorOpen;
 
-        door.SetActive(false);
-        //door.GetComponent<Animator>().SetBool("IsOpen", doorOpen);
+        door.GetComponent<Animator>().SetBool("IsOpen", doorOpen);
     }
 }
