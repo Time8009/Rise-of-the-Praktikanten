@@ -73,8 +73,8 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
-
-		private const float _threshold = 0.01f;
+        internal Camera cam;
+        private const float _threshold = 0.01f;
 
 		private bool IsCurrentDeviceMouse
 		{
