@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class test : StateMachineBehaviour
 {
-    private void Start()
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Debug.Log(this);
         ChangeScene();
