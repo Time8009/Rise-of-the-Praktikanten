@@ -60,3 +60,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 *.vsconfig
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
+UserSettings/EditorUserSettings.asset
