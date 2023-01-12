@@ -64,6 +64,8 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
+		private float charHeight;
+
 	
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		private PlayerInput _playerInput;
@@ -108,6 +110,7 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			charHeight = _controller.height;
 		}
 
 		private void Update()
@@ -115,11 +118,20 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			crouch();
 		}
 
 		private void LateUpdate()
 		{
 			CameraRotation();
+		}
+
+		private void crouch()
+        {
+			if (Input.GetKey(KeyCode.LeftControl))
+				_controller.height = Mathf.Lerp(_controller.height, charHeight / 2, _fallTimeoutDelta);
+			else
+				_controller.height = Mathf.Lerp(_controller.height, charHeight, _fallTimeoutDelta);
 		}
 
 		private void GroundedCheck()
