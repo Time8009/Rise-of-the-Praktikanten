@@ -1,6 +1,6 @@
-# Our-Game
+# Rise of the Praktikanten
 
-our Game
+Rise of the Pranktikanten
 
 ## Name
 
