@@ -4,142 +4,44 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.IO;
-//using UnityStandardAssets.ImageEffects;
-/// <summary>
-///  Copyright (c) 2016 Eric Zhu 
-/// </summary>
-namespace GreatArcStudios
-{
-    /// <summary>
-    /// The pause menu manager. You can extend this to make your own. Everything is pretty modular, so creating you own based off of this should be easy. Thanks for downloading and good luck! 
-    /// </summary>
-    public class PauseManager : MonoBehaviour
-    {
-        /// <summary>
-        /// This is the main panel holder, which holds the main panel and should be called "main panel"
-        /// </summary> 
+
+namespace GreatArcStudios {
+    public class PauseManager : MonoBehaviour {
         public GameObject mainPanel;
-        /// <summary>
-        /// This is the video panel holder, which holds all of the controls for the video panel and should be called "vid panel"
-        /// </summary>
         public GameObject vidPanel;
-        /// <summary>
-        /// This is the audio panel holder, which holds all of the silders for the audio panel and should be called "audio panel"
-        /// </summary>
         public GameObject audioPanel;
-        /// <summary>
-        /// These are the game objects with the title texts like "Pause menu" and "Game Title" 
-        /// </summary>
         public GameObject TitleTexts;
-        /// <summary>
-        /// The mask that makes the scene darker  
-        /// </summary>
         public GameObject mask;
-        /// <summary>
-        /// Audio Panel animator
-        /// </summary>
+        
         public Animator audioPanelAnimator;
-        /// <summary>
-        /// Video Panel animator  
-        /// </summary>
         public Animator vidPanelAnimator;
-        /// <summary>
-        /// Quit Panel animator  
-        /// </summary>
         public Animator quitPanelAnimator;
-        /// <summary>
-        /// Pause menu text 
-        /// </summary>
+        
         public Text pauseMenu;
-
-        /// <summary>
-        /// Main menu level string used for loading the main menu. This means you'll need to type in the editor text box, the name of the main menu level, ie: "mainmenu";
-        /// </summary>
+        
         public String mainMenu;
-        //DOF script name
-        /// <summary>
-        /// The Depth of Field script name, ie: "DepthOfField". You can leave this blank in the editor, but will throw a null refrence exception, which is harmless.
-        /// </summary>
         public String DOFScriptName;
-
-        /// <summary>
-        /// The Ambient Occlusion script name, ie: "AmbientOcclusion". You can leave this blank in the editor, but will throw a null refrence exception, which is harmless.
-        /// </summary>
         public String AOScriptName;
-        /// <summary>
-        /// The main camera, assign this through the editor. 
-        /// </summary>        
+        
         public Camera mainCam;
         internal static Camera mainCamShared;
-        /// <summary>
-        /// The main camera game object, assign this through the editor. 
-        /// </summary> 
         public GameObject mainCamObj;
 
-        /// <summary>
-        /// The terrain detail density float. It's only public because you may want to adjust it in editor
-        /// </summary> 
-        public  float detailDensity;
-
-        /// <summary>
-        /// Timescale value. The defualt is 1 for most games. You may want to change it if you are pausing the game in a slow motion situation 
-        /// </summary> 
-        public float timeScale = 1f;
-        /// <summary>
-        /// One terrain variable used if you have a terrain plugin like rtp. 
-        /// </summary>
         public  Terrain terrain;
-        /// <summary>
-        /// Other terrain variable used if you want to have an option to target low end harware.
-        /// </summary>
         public  Terrain simpleTerrain;
-        /// <summary>
-        /// Inital shadow distance 
-        /// </summary>
+
+        public float detailDensity;
+        public float timeScale = 1f;
         internal static float shadowDistINI;
-        /// <summary>
-        /// Inital render distance 
-        /// </summary>
         internal static float renderDistINI;
-        /// <summary>
-        /// Inital AA quality 2, 4, or 8
-        /// </summary>
         internal static float aaQualINI;
-        /// <summary>
-        /// Inital terrain detail density
-        /// </summary>
         internal static float densityINI;
-        /// <summary>
-        /// Amount of trees that are acutal meshes
-        /// </summary>
         internal static float treeMeshAmtINI;
-        /// <summary>
-        /// Inital fov 
-        /// </summary>
         internal static float fovINI;
-        /// <summary>
-        /// Inital msaa amount 
-        /// </summary>
         internal static int msaaINI;
-        /// <summary>
-        /// Inital vsync count, the Unity docs say,
-        /// <code> 
-        /// //This will set the game to have one VSync per frame
-        /// QualitySettings.vSyncCount = 1;
-        /// </code>
-        /// <code>
-        /// //This will disable vsync
-        /// QualitySettings.vSyncCount = 0;
-        /// </code>
-        /// </summary>
         internal static int vsyncINI;
-        /// <summary>
-        /// AA drop down menu.
-        /// </summary>
+        
         public Dropdown aaCombo;
-        /// <summary>
-        /// Aniso drop down menu.
-        /// </summary>
         public Dropdown afCombo;
 
         public Slider fovSlider;
@@ -154,94 +56,49 @@ namespace GreatArcStudios
         public Slider audioEffectsSlider;
         public Slider masterTexSlider;
         public Slider shadowCascadesSlider;
+
         public Toggle vSyncToggle;
         public Toggle aoToggle;
         public Toggle dofToggle;
         public Toggle fullscreenToggle;
-        /// <summary>
-        /// The preset text label.
-        /// </summary>
         public Text presetLabel;
-        /// <summary>
-        /// Resolution text label.
-        /// </summary>
         public Text resolutionLabel;
-        /// <summary>
-        /// Lod bias float array. You should manually assign these based on the quality level.
-        /// </summary>
+
         public  float[] LODBias;
-        /// <summary>
-        /// Shadow distance array. You should manually assign these based on the quality level.
-        /// </summary>
         public  float[] shadowDist;
-        /// <summary>
-        /// An array of music audio sources
-        /// </summary>
+
         public  AudioSource[] music;
-        /// <summary>
-        /// An array of sound effect audio sources
-        /// </summary>
         public  AudioSource[] effects;
-        /// <summary>
-        /// An array of the other UI elements, which is used for disabling the other elements when the game is paused.
-        /// </summary>
+
         public GameObject[] otherUIElements;
-        /// <summary>
-        /// Editor boolean for hardcoding certain video settings. It will allow you to use the values defined in LOD Bias and Shadow Distance
-        /// </summary>
+
         public Boolean hardCodeSomeVideoSettings;
-        /// <summary>
-        /// Boolean for turning on simple terrain
-        /// </summary>
         public  Boolean useSimpleTerrain;
         public static Boolean readUseSimpleTerrain;
-        /// <summary>
-        /// Event system
-        /// </summary>
+
         public EventSystem uiEventSystem;
-        /// <summary>
-        /// Defualt selected on the video panel
-        /// </summary>
+
         public GameObject defualtSelectedVideo;
-        /// <summary>
-        /// Defualt selected on the video panel
-        /// </summary>
         public GameObject defualtSelectedAudio;
-        /// <summary>
-        /// Defualt selected on the video panel
-        /// </summary>
         public GameObject defualtSelectedMain;
-        //last music multiplier; this should be a value between 0-1
+
         internal static float lastMusicMult;
-        //last audio multiplier; this should be a value between 0-1
         internal static float lastAudioMult;
-        //Initial master volume
         internal static float beforeMaster;
-        //last texture limit 
+
         internal static int lastTexLimit;
-        //int for amount of effects
         private int _audioEffectAmt = 0;
-        //Inital audio effect volumes
         private float[] _beforeEffectVol;
 
-        //Initial music volume
         private float _beforeMusic;
-        //Preset level
         private int _currentLevel;
-        //Resoutions
         private Resolution[] allRes;
-        //Camera dof script
         private MonoBehaviour tempScript;
-        //Presets 
         private String[] presets;
-        //Fullscreen Boolean
         private Boolean isFullscreen;
-        //current resoultion
         internal static Resolution currentRes;
-        //Last resoultion 
         private Resolution beforeRes;
 
-        //last shadow cascade value
         internal static int lastShadowCascade;
        
         public static Boolean aoBool;
@@ -252,34 +109,9 @@ namespace GreatArcStudios
         public static Terrain readSimpleTerrain;
 
         private SaveSettings saveSettings = new SaveSettings();
-        /*
-        //Color fade duration value
-        //public float crossFadeDuration;
-        //custom color
-        //public Color _customColor;
-        
-         //Animation clips
-         private AnimationClip audioIn;
-         private AnimationClip audioOut;
-         public AnimationClip vidIn;
-         public AnimationClip vidOut;
-         public AnimationClip mainIn;
-         public AnimationClip mainOut; 
-          */
-        //Blur Variables
-        //Blur Effect Script (using the standard image effects package) 
-        //public Blur blurEffect;
-        //Blur Effect Shader (should be the one that came with the package)
-        //public Shader blurEffectShader;
-        //Boolean for if the blur effect was originally enabled
-        //public Boolean blurBool;
-
-        /// <summary>
-        /// The start method; you will need to place all of your inital value getting/setting here. 
-        /// </summary>
+       
         public void Start()
         {
-           
             readUseSimpleTerrain = useSimpleTerrain;
             if (useSimpleTerrain)
             {
@@ -451,6 +283,8 @@ namespace GreatArcStudios
             if (Input.GetKeyDown(KeyCode.Escape) && mainPanel.active == false)
             {
 
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
                 mainPanel.SetActive(true);
                 vidPanel.SetActive(false);
@@ -468,6 +302,8 @@ namespace GreatArcStudios
                  }  */
             }
             else if(Input.GetKeyDown(KeyCode.Escape) && mainPanel.active == true) {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 Time.timeScale = timeScale;
                 mainPanel.SetActive(false);
                 vidPanel.SetActive(false);
