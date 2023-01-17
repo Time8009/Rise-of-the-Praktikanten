@@ -283,7 +283,7 @@ namespace GreatArcStudios {
             if (Input.GetKeyDown(KeyCode.Escape) && mainPanel.active == false)
             {
 
-                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = false;
                 uiEventSystem.SetSelectedGameObject(defualtSelectedMain);
                 mainPanel.SetActive(true);
@@ -302,7 +302,7 @@ namespace GreatArcStudios {
                  }  */
             }
             else if(Input.GetKeyDown(KeyCode.Escape) && mainPanel.active == true) {
-                Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = true;
                 Time.timeScale = timeScale;
                 mainPanel.SetActive(false);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.589
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0.589}
+  m_IndirectSpecularColor: {r: 0.10618715, g: 0.13294561, b: 0.18077755, a: 0.589}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!20 &556555186 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2056428, guid: cc90e0aa039d3954f8de2dea80c6ed76, type: 3}
-  m_PrefabInstance: {fileID: 1264057549}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &999355705 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 11448166, guid: cc90e0aa039d3954f8de2dea80c6ed76, type: 3}
@@ -160,7 +155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 161058, guid: cc90e0aa039d3954f8de2dea80c6ed76, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 172222, guid: cc90e0aa039d3954f8de2dea80c6ed76, type: 3}
       propertyPath: m_Name
@@ -289,7 +284,7 @@ PrefabInstance:
     - target: {fileID: 11499738, guid: cc90e0aa039d3954f8de2dea80c6ed76, type: 3}
       propertyPath: mainCam
       value: 
-      objectReference: {fileID: 556555186}
+      objectReference: {fileID: 0}
     - target: {fileID: 11499738, guid: cc90e0aa039d3954f8de2dea80c6ed76, type: 3}
       propertyPath: m_Enabled
       value: 1
