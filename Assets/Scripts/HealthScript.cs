@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using UnityEngine;
 public class HealthScript : MonoBehaviour {
 
@@ -13,6 +14,9 @@ public class HealthScript : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.T)) {
             TakeDamage();
+        }
+        if(HealthScript.health <= 0) {
+            SceneManager.LoadScene("Lobby");
         }
     }
 }
