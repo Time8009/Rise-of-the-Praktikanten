@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Switchtoscene3 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Corourtine");
+        StartCoroutine(ChangeScene());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator ChangeScene()
     {
-        
+        Debug.Log("Wait");
+        yield return new WaitForSeconds(5f);
+        Debug.Log("Change Scene");
+        SceneManager.LoadScene("Level 1");
     }
 }

@@ -10,6 +10,6 @@ public class test : StateMachineBehaviour
     }
     private void ChangeScene()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Wake Up Text");
     }
 }
