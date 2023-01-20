@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: 619e305f5165a9946b7f72464e44ca4a, type: 3}
   m_Sun: {fileID: 2114283754330233425}
-  m_IndirectSpecularColor: {r: 0.029152088, g: 0.06444542, b: 0.12695026, a: 1}
+  m_IndirectSpecularColor: {r: 0.029152213, g: 0.064445764, b: 0.12695098, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 5393215579111688472}
-  speed: 0.5
+  speed: 1
 --- !u!136 &18763465
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2553,11 +2553,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 401912, guid: a71dd1fa6efddfa41990980cd044de47, type: 3}
   m_PrefabInstance: {fileID: 123344700}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &219319161 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 164670, guid: b826295956c65444987d7baae67c5858, type: 3}
-  m_PrefabInstance: {fileID: 1168287147}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &229655226
 PrefabInstance:
@@ -6045,19 +6040,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 475148, guid: b826295956c65444987d7baae67c5858, type: 3}
   m_PrefabInstance: {fileID: 1168287147}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &667998167
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219319161}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 1, z: 1}
-  m_Center: {x: 1.5, y: 0, z: -1}
 --- !u!1 &669489950
 GameObject:
   m_ObjectHideFlags: 0
@@ -7621,7 +7603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 5393215579111688472}
-  speed: 0.5
+  speed: 1
 --- !u!54 &884377972
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12201,7 +12183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 5393215579111688472}
-  speed: 0.5
+  speed: 1
 --- !u!54 &1516875987
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17013,7 +16995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 5393215579111688472}
-  speed: 0.5
+  speed: 1
 --- !u!54 &1978372930
 Rigidbody:
   m_ObjectHideFlags: 0
