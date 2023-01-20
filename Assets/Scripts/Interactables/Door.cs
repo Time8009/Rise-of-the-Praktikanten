@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Door : Interactable
 {
     [SerializeField]
@@ -20,5 +21,14 @@ public class Door : Interactable
         doorOpen = !doorOpen;
 
         door.GetComponent<Animator>().SetBool("IsOpen", doorOpen);
+        if(doorOpen)
+        {
+            ZombieWalk.canWalk = true;
+        }
+        else
+        {
+            ZombieWalk.canWalk = false;
+
+        }
     }
 }
