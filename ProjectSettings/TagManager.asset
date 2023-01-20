@@ -11,11 +11,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NOZombieColision
   - Water
   - UI
   - Interactable
-  - 
+  - Zombies
   - 
   - 
   - 

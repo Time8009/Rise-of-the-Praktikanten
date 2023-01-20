@@ -42,6 +42,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Debug.Log("hi");
         if (instance == null)
         {
             instance = this;
