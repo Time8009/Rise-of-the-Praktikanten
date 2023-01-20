@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public static class ZombieWalk
+{
+    public static bool canWalk = false;
+}
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
@@ -26,6 +30,9 @@ public class ZombieAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!ZombieWalk.canWalk)
+            return;
+
         transform.LookAt(Target.gameObject.transform);
 
         //RB.MovePosition(transform.position + transform.forward * Time.deltaTime * speed);
