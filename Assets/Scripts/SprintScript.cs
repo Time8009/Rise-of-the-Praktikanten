@@ -1,24 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson
 
-public class SprintScript : MonoBehaviour
+public class SprintScriptCustom : MonoBehaviour
 {
-    public static float maxSprint = 100f;
-    public static float Sprint = maxSprint;
-    public SprintBar SprintBar;
+    [Header("Stamina Main Parameters")]
+    public float PlayerStamina = 100.0f;
+    [SerializeField] private float maxStamina = 100.0f
+    [SerializeField] private float jumpCost = 20;
+    [HideInInspector] public bool hasRegenerated = true;
+    [HideInInspector] public bool weAreSprinting = false;
 
-    public void Run()
+    [Header("Stamina Regen Parameter")]
+    [Range(0, 50)] [SerializeField] private float staminaDrain = 0.5f;
+    [Range(0, 50)] [SerializeField] private float staminaRegen = 0.5f;
+
+    [Header]("Stamina Speed Parameter")
+    [SerializeField] private int slowedRunSpeed = 4;
+    [SerializeField] private int NormalRunSpeed = 8;
+
+    [Header] ("Stamina UI Elements")
+    [SerializeField] private Image staminaProgressUI = null;
+    [SerializeField] private CanvasGroup sliderCanvasGroup = null;
+
+    private FirstPersonControllerCustom playerController;
+
+    private void Start()
     {
-        SprintScript.Sprint = SprintScript.Sprint - 5;
-        SprintBar.UpdateSprintBar();
+        playerController = GetComponent<FirstPersonControllerCustom>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+       if(!weAreSprinting)
         {
-            Run();
+            if(PlayerStamina <= maxStamina - 0.01)
+            {
+                PlayerStamina += staminaRegen * Time.deltaTime;
+                //UpdateStamina
+
+                if(PlayerStamina >= maxStamina)
+            }
         }
     }
 }
