@@ -1,7 +1,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
-public class HealthScript : MonoBehaviour {
-
+public class HealthScript : MonoBehaviour 
+{
     public static float maxHealth = 100f;
     public static float health = maxHealth;
     public HealthBar healthBar;
