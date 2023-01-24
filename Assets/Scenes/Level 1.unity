@@ -16187,6 +16187,7 @@ GameObject:
   - component: {fileID: 1917378149}
   - component: {fileID: 1917378152}
   - component: {fileID: 1917378151}
+  - component: {fileID: 1917378153}
   m_Layer: 5
   m_Name: staminaBar
   m_TagString: Untagged
@@ -16254,6 +16255,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917378148}
   m_CullTransparentMesh: 1
+--- !u!114 &1917378153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917378148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dfb7292a1ab4d341a4d7638e701e829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SprintbarImage: {fileID: 801825659}
+  player: {fileID: 5393215579111688493}
 --- !u!4 &1919384946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 493860, guid: a73967be39a7cc74ca310e8a9d9de82d, type: 3}
@@ -19242,6 +19257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c88b83219dfa047ba4457e56a7e587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SprintBar: {fileID: 1917378153}
 --- !u!1001 &7288094137546172433
 PrefabInstance:
   m_ObjectHideFlags: 0

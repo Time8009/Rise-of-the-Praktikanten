@@ -15,7 +15,7 @@ namespace StarterAssets
         [MenuItem(MenuRoot + "/Reset First Person Controller", false)]
         static void ResetFirstPersonControllerCapsule()
         {
-            var firstPersonControllers = FindObjectsOfType<FirstPersonController>();
+            var firstPersonControllers = FindObjectsOfType<FirstPersonControllerCustom>();
             var player = firstPersonControllers.FirstOrDefault(controller => controller.CompareTag(PlayerTag));
 
             GameObject playerGameObject = null;
@@ -23,7 +23,7 @@ namespace StarterAssets
             // player
             if (player == null)
             {
-                if (TryLocatePrefab(PlayerCapsulePrefabName, null, new []{typeof(FirstPersonController)}, out GameObject prefab, out string _))
+                if (TryLocatePrefab(PlayerCapsulePrefabName, null, new []{typeof(FirstPersonControllerCustom)}, out GameObject prefab, out string _))
                 {
                     HandleInstantiatingPrefab(prefab, out playerGameObject);
                 }
@@ -46,7 +46,7 @@ namespace StarterAssets
         
         static string GetFirstPersonPrefabPath()
         {
-            if (TryLocatePrefab(PlayerCapsulePrefabName, null, new[] { typeof(FirstPersonController), typeof(StarterAssetsInputs) }, out GameObject _, out string prefabPath))
+            if (TryLocatePrefab(PlayerCapsulePrefabName, null, new[] { typeof(FirstPersonControllerCustom), typeof(StarterAssetsInputs) }, out GameObject _, out string prefabPath))
             {
                 var pathString = new StringBuilder();
                 var currentDirectory = new FileInfo(prefabPath).Directory;

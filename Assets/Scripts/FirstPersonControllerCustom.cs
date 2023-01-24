@@ -9,7 +9,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 	[RequireComponent(typeof(PlayerInput))]
 #endif
-	public class FirstPersonController : MonoBehaviour
+	public class FirstPersonControllerCustom : MonoBehaviour
 	{
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
@@ -42,6 +42,7 @@ namespace StarterAssets
 		public float GroundedRadius = 0.5f;
 		[Tooltip("What layers the character uses as ground")]
 		public LayerMask GroundLayers;
+		[HideInInspector] public SprintScript _SprintScript;
 
 		[Header("Cinemachine")]
 		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
@@ -99,6 +100,7 @@ namespace StarterAssets
 
 		private void Start()
 		{
+			_SprintScript = GetComponent<SprintScript>();
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -113,6 +115,10 @@ namespace StarterAssets
 			charHeight = _controller.height;
 		}
 
+		public void SetRunSpeed(float speed)
+        {
+			//m_RunSpeed = speed;
+        }
 		private void Update()
 		{
 			JumpAndGravity();
