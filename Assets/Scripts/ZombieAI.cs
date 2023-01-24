@@ -14,15 +14,12 @@ public class ZombieAI : MonoBehaviour
     public GameObject Target;
     public float speed = 1.5f;
 
-    private Rigidbody RB;
-
     private Animator animator;
 
     private float distance;
     // Start is called before the first frame update
     void Start()
     {
-        RB = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         animator.SetFloat("Speed", speed);
     }
@@ -39,13 +36,21 @@ public class ZombieAI : MonoBehaviour
 
         distance = Vector3.Distance(transform.position, Target.gameObject.transform.position);
 
-        if (distance > 3.0f)
+        if (distance > 0.1f)
             distance = 1.0f;
-        else if (distance < 3.0f && distance > 2.3f)
+        else if (distance < 0.1f && distance > 0.02f)
             distance = 0.0f;
-        else if (distance < 2.3f)
+        else if (distance < 0.01f)
             distance = -1.0f;
 
         animator.SetFloat("VerticalMove", distance);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.gameObject.tag == "Player")
+        {
+            HealthScript.health -= 10 * Time.deltaTime;
+        }
     }
 }

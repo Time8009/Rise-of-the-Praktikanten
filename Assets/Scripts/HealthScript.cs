@@ -12,6 +12,9 @@ public class HealthScript : MonoBehaviour
     }
 
     void Update() {
+
+        healthBar.UpdateHealthBar();
+
         if (Input.GetKeyDown(KeyCode.T)) {
             TakeDamage();
         }
