@@ -6,21 +6,61 @@ public class SprintScript : MonoBehaviour
 {
     public static float maxSprint = 100f;
     public static float Sprint = maxSprint;
+
+    [SerializeField]
+    private float sprintMalus = 1f;
     public SprintBar SprintBar;
+
+    private bool RunIsRunning = false;
+    private bool NotRunIsRunning = false;
+    private bool shiftIsPressed = false;
 
 
     public IEnumerator Run()
     {
-        yield return null;        
-        SprintScript.Sprint = SprintScript.Sprint - 1;
-        SprintBar.UpdateSprintBar();
+        if(RunIsRunning)
+            yield break;
+
+        RunIsRunning = true;
+
+        while (shiftIsPressed)
+        {
+            yield return new WaitForSeconds(0.1f);
+            SprintScript.Sprint = Mathf.Clamp(SprintScript.Sprint - sprintMalus, 0f, maxSprint);
+            SprintBar.UpdateSprintBar();
+        }
+
+        RunIsRunning = false;
+    }
+
+    public IEnumerator NotRun()
+    {
+        if (NotRunIsRunning)
+            yield break;
+
+        NotRunIsRunning = true;
+
+        while (!shiftIsPressed)
+        {
+            yield return new WaitForSeconds(0.5f);
+            SprintScript.Sprint = Mathf.Clamp(SprintScript.Sprint + sprintMalus, 0f, maxSprint);
+            SprintBar.UpdateSprintBar();
+        }
+
+        NotRunIsRunning = false;
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            shiftIsPressed = true;
             StartCoroutine(Run());
+        }
+        else
+        {
+            shiftIsPressed = false;
+            StartCoroutine(NotRun());            
         }
     }
     

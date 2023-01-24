@@ -19123,6 +19123,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1219623827}
     m_Modifications:
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: SprintSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: PlayerCapsule
@@ -19257,6 +19261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c88b83219dfa047ba4457e56a7e587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprintMalus: 5
   SprintBar: {fileID: 1917378153}
 --- !u!1001 &7288094137546172433
 PrefabInstance:
