@@ -20,15 +20,16 @@ public class Door : Interactable
     {
         doorOpen = !doorOpen;
 
-        door.GetComponent<Animator>().SetBool("IsOpen", doorOpen);
+        //door.GetComponent<Animator>().SetBool("IsOpen", doorOpen);
         if(doorOpen)
         {
+            door.GetComponent<Animator>().SetTrigger("Open");
             ZombieWalk.canWalk = true;
         }
         else
         {
+            door.GetComponent<Animator>().SetTrigger("Close");
             ZombieWalk.canWalk = false;
-
         }
     }
 }
