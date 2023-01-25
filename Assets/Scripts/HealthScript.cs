@@ -15,7 +15,7 @@ public class HealthScript : MonoBehaviour
     }
     public void Retry()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
     }
 
     private void Start()
