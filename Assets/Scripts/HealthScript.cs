@@ -9,13 +9,14 @@ public class HealthScript : MonoBehaviour
     public HealthBar healthBar;
     public Canvas canvas;
 
+
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
     }
     public void Retry()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);    
     }
 
     private void Start()

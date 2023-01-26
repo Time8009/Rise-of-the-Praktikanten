@@ -16737,6 +16737,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8a7f3e3f34602944ca9b0a89e0f7be30, type: 2}
+    - target: {fileID: 3900544237281896516, guid: a73967be39a7cc74ca310e8a9d9de82d, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1915355517}
     m_RemovedComponents:
     - {fileID: 64176364834421666, guid: a73967be39a7cc74ca310e8a9d9de82d, type: 3}
     - {fileID: 64165276453591286, guid: a73967be39a7cc74ca310e8a9d9de82d, type: 3}
@@ -26357,6 +26361,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.9974, y: 1.8742001, z: 0}
   m_Center: {x: 1.5047001, y: 2.0656, z: 0}
+--- !u!114 &1961879435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961879426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca6fda1ab6c99b47b3ba91c51dafc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1915355517}
 --- !u!1001 &1962802233
 PrefabInstance:
   m_ObjectHideFlags: 0
