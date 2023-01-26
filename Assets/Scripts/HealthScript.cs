@@ -16,6 +16,10 @@ public class HealthScript : MonoBehaviour
     }
     public void Retry()
     {
+        Time.timeScale = 1.0f;
+        HealthScript.health = maxHealth;
+        SprintScript.Sprint = SprintScript.maxSprint;
+        ZombieWalk.canWalk = false;
         SceneManager.LoadScene(3);    
     }
 
