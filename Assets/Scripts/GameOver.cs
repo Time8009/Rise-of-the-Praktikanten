@@ -9,7 +9,7 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         canvas.enabled = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 1;
     }
 
