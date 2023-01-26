@@ -36,14 +36,30 @@ public class ZombieAI : MonoBehaviour
 
         distance = Vector3.Distance(transform.position, Target.gameObject.transform.position);
 
+        if (distance < 1.1f && distance > -0.1f)        {
+
+            animator.SetBool("ZombieCanEat", true);
+        }
+        else
+        {
+            animator.SetBool("ZombieCanEat", false);
+        }
+
         if (distance > 0.1f)
+        {
             distance = 1.0f;
+        }
         else if (distance < 0.1f && distance > 0.02f)
+        {
             distance = 0.0f;
+        }
         else if (distance < 0.01f)
+        {
             distance = -1.0f;
+        }
 
         animator.SetFloat("VerticalMove", distance);
+
     }
 
     private void OnCollisionStay(Collision collision)
