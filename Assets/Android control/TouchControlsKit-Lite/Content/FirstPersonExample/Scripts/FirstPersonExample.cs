@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using TouchControlsKit;
+using StarterAssets;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Examples
 {
+
     public class FirstPersonExample : MonoBehaviour
     {
         bool binded;
@@ -12,8 +16,22 @@ namespace Examples
         bool jump, prevGrounded, isPorjectileCube;
         float weapReadyTime;
         bool weapReady = true;
+        private Camera cam;
+        [SerializeField]
+        private float distance = 3f;
+        [SerializeField]
+        LayerMask mask;
+        private PlayerUI PlayerUI;
+        private StarterAssetsInputs inputManager;
 
 
+
+        private void Start()
+        {
+            cam = Camera.main;
+            PlayerUI = GetComponent<PlayerUI>();
+            inputManager = GetComponent<StarterAssetsInputs>();
+        }
         // Awake
         void Awake()
         {
@@ -25,29 +43,40 @@ namespace Examples
         // Update
         void Update()
         {
-            if( weapReady == false )
+            if (weapReady == false)
             {
                 weapReadyTime += Time.deltaTime;
-                if( weapReadyTime > .15f )
+                if (weapReadyTime > .15f)
                 {
                     weapReady = true;
                     weapReadyTime = 0f;
                 }
             }
 
-
-            if( TCKInput.GetAction( "jumpBtn", EActionEvent.Down ) )
+            PlayerUI.UpdateText(string.Empty);
+            Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+            Debug.DrawRay(ray.origin, ray.direction * distance);
+            RaycastHit hitInfo;
+            if (Physics.Raycast(ray, out hitInfo, distance, mask))
             {
-                Jumping();
-            }
+                if (hitInfo.collider.GetComponent<Interactable>() != null)
+                {
+                    Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
+                    PlayerUI.UpdateText(interactable.promptMessage);
+                    if (TCKInput.GetAction("EBtn", EActionEvent.Down))
+                    {
+                        interactable.BaseInteract();
+                    }
 
-            if( TCKInput.GetAction( "fireBtn", EActionEvent.Press ) )
-            {
-                PlayerFiring();
-            }
+                    if (TCKInput.GetAction("runBtn", EActionEvent.Press))
+                    {
+                        Runing();
+                    }
 
-            Vector2 look = TCKInput.GetAxis( "Touchpad" );
-            PlayerRotation( look.x, look.y );
+                    Vector2 look = TCKInput.GetAxis("Touchpad");
+                    PlayerRotation(look.x, look.y);
+                }
+            }
         }
 
         // FixedUpdate
@@ -55,21 +84,14 @@ namespace Examples
         {
             /*float moveX = TCKInput.GetAxis( "Joystick", EAxisType.Horizontal );
             float moveY = TCKInput.GetAxis( "Joystick", EAxisType.Vertical );*/
-            Vector2 move = TCKInput.GetAxis( "Joystick" ); // NEW func since ver 1.5.5
-            PlayerMovement( move.x, move.y );
+            Vector2 move = TCKInput.GetAxis("Joystick"); // NEW func since ver 1.5.5
+            PlayerMovement(move.x, move.y);
         }
 
 
-        // Jumping
-        private void Jumping()
-        {
-            if( controller.isGrounded )
-                jump = true;
-        }
 
-                        
         // PlayerMovement
-        private void PlayerMovement( float horizontal, float vertical )
+        void PlayerMovement(float horizontal, float vertical)
         {
             bool grounded = controller.isGrounded;
 
@@ -78,54 +100,43 @@ namespace Examples
 
             moveDirection.y = -10f;
 
-            if( jump )
+            if (jump)
             {
                 jump = false;
                 moveDirection.y = 25f;
                 isPorjectileCube = !isPorjectileCube;
             }
 
-            if( grounded )            
+            if (grounded)
                 moveDirection *= 7f;
-            
-            controller.Move( moveDirection * Time.fixedDeltaTime );
 
-            if( !prevGrounded && grounded )
+            controller.Move(moveDirection * Time.fixedDeltaTime);
+
+            if (!prevGrounded && grounded)
                 moveDirection.y = 0f;
 
             prevGrounded = grounded;
         }
 
         // PlayerRotation
-        public void PlayerRotation( float horizontal, float vertical )
+        void PlayerRotation(float horizontal, float vertical)
         {
-            myTransform.Rotate( 0f, horizontal * 12f, 0f );
+            myTransform.Rotate(0f, horizontal * 12f, 0f);
             rotation += vertical * 12f;
-            rotation = Mathf.Clamp( rotation, -60f, 60f );
-            cameraTransform.localEulerAngles = new Vector3( -rotation, cameraTransform.localEulerAngles.y, 0f );
+            rotation = Mathf.Clamp(rotation, -60f, 60f);
+            cameraTransform.localEulerAngles = new Vector3(-rotation, cameraTransform.localEulerAngles.y, 0f);
         }
-        
+
         // PlayerFiring
-        public void PlayerFiring()
+        void Runing()
         {
-            if( !weapReady )
-                return;
 
-            weapReady = false;
-
-            GameObject primitive = GameObject.CreatePrimitive( isPorjectileCube ? PrimitiveType.Cube : PrimitiveType.Sphere );
-            primitive.transform.position = ( myTransform.position + myTransform.right );
-            primitive.transform.localScale = Vector3.one * .2f;
-            Rigidbody rBody = primitive.AddComponent<Rigidbody>();
-            Transform camTransform = Camera.main.transform;
-            rBody.AddForce( camTransform.forward * Random.Range( 25f, 35f ) + camTransform.right * Random.Range( -2f, 2f ) + camTransform.up * Random.Range( -2f, 2f ), ForceMode.Impulse );
-            Destroy( primitive, 3.5f );
         }
-
         // PlayerClicked
-        public void PlayerClicked()
+        void PlayerClicked()
         {
             //Debug.Log( "PlayerClicked" );
         }
-    };
+    }
 }
+    
