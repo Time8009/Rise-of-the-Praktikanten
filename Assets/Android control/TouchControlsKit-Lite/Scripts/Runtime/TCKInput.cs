@@ -307,7 +307,7 @@ namespace TouchControlsKit
                 return 0f;
 
             for( int i = 0; i < abControllers.Length; i++ )
-            {
+            {                
                 if( abControllers[ i ].identifier == controllerName )
                 {
                     return ( axisType == EAxisType.Horizontal )
@@ -329,7 +329,7 @@ namespace TouchControlsKit
         {
             for( int i = 0; i < abControllers.Length; i++ )
             {
-                if( abControllers[ i ].identifier == controllerName )
+                if ( abControllers[ i ].identifier == controllerName )
                 {
                     return new Vector2( abControllers[ i ].axisX.value, abControllers[ i ].axisY.value );
                 }

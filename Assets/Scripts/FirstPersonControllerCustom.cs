@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TouchControlsKit;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -65,6 +66,8 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
+		private Vector3 move;
+
 		private float charHeight;
 
 	
@@ -98,7 +101,12 @@ namespace StarterAssets
 			}
 		}
 
-		private void Start()
+        private void FixedUpdate()
+        {
+            move = TCKInput.GetAxis("Joystick");
+		}
+
+        private void Start()
 		{
 			_SprintScript = GetComponent<SprintScript>();
 			_controller = GetComponent<CharacterController>();
@@ -171,6 +179,9 @@ namespace StarterAssets
 
 		private void Move()
 		{
+			_input.move = move;
+			Debug.Log("move: " + move);
+
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
@@ -181,7 +192,10 @@ namespace StarterAssets
 
 			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
 			// if there is no input, set the target speed to 0
+			
 			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+			//Debug.Log("_INPUT MOVE: " + _input.move);
+			
 
 			// a reference to the players current horizontal velocity
 			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;

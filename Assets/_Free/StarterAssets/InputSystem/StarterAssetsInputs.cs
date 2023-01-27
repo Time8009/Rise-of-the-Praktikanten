@@ -1,3 +1,4 @@
+using TouchControlsKit;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -48,12 +49,14 @@ namespace StarterAssets
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
-			move = newMoveDirection;
+			//move = TCKInput.GetAxis("Joystick"); // NEW func since ver 1.5.5
+			//move = newMoveDirection;
 		} 
 
 		public void LookInput(Vector2 newLookDirection)
 		{
-			look = newLookDirection;
+			look = TCKInput.GetAxis("Touchpad");
+			//look = newLookDirection;
 		}
 
 		public void JumpInput(bool newJumpState)
@@ -63,7 +66,7 @@ namespace StarterAssets
 
 		public void SprintInput(bool newSprintState)
 		{
-			sprint = newSprintState;
+			sprint = TCKInput.GetAction("EBtn", EActionEvent.Down);
 		}
 		
 		private void OnApplicationFocus(bool hasFocus)
