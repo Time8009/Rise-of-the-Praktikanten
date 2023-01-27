@@ -8,12 +8,12 @@ public class SprintScript : MonoBehaviour
     public static float Sprint = maxSprint;
 
     [SerializeField]
-    private float sprintMalus = 1f;
+    public float sprintMalus = 1f;
     public SprintBar SprintBar;
 
-    private bool RunIsRunning = false;
-    private bool NotRunIsRunning = false;
-    private bool shiftIsPressed = false;
+    public bool RunIsRunning = false;
+    public bool NotRunIsRunning = false;
+    public bool shiftIsPressed = false;
 
 
     public IEnumerator Run()

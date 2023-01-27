@@ -23,6 +23,16 @@ namespace Examples
         LayerMask mask;
         private PlayerUI PlayerUI;
         private StarterAssetsInputs inputManager;
+        public static float maxSprint = 100f;
+        public static float Sprint = maxSprint;
+
+        [SerializeField]
+        public float sprintMalus = 1f;
+        public SprintBar SprintBar;
+
+        public bool RunIsRunning = false;
+        public bool NotRunIsRunning = false;
+        public bool shiftIsPressed = false;
 
 
 
@@ -43,6 +53,19 @@ namespace Examples
         // Update
         void Update()
         {
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                shiftIsPressed = true;
+                StartCoroutine(Run());
+            }
+            else
+            {
+                shiftIsPressed = false;
+                StartCoroutine(NotRun());
+            }
+
+
             if (weapReady == false)
             {
                 weapReadyTime += Time.deltaTime;
@@ -68,15 +91,12 @@ namespace Examples
                         interactable.BaseInteract();
                     }
 
-                    if (TCKInput.GetAction("runBtn", EActionEvent.Press))
-                    {
-                        Runing();
-                    }
-
-                    Vector2 look = TCKInput.GetAxis("Touchpad");
-                    PlayerRotation(look.x, look.y);
                 }
             }
+            Vector2 look = TCKInput.GetAxis("Touchpad");
+            PlayerRotation(look.x, look.y);
+
+
         }
 
         // FixedUpdate
@@ -136,6 +156,41 @@ namespace Examples
         void PlayerClicked()
         {
             //Debug.Log( "PlayerClicked" );
+        }
+
+
+        public IEnumerator Run()
+        {
+            if (RunIsRunning)
+                yield break;
+
+            RunIsRunning = true;
+
+            while (shiftIsPressed)
+            {
+                yield return new WaitForSeconds(0.1f);
+                SprintScript.Sprint = Mathf.Clamp(SprintScript.Sprint - sprintMalus, 0f, maxSprint);
+                SprintBar.UpdateSprintBar();
+            }
+
+            RunIsRunning = false;
+        }
+
+        public IEnumerator NotRun()
+        {
+            if (NotRunIsRunning)
+                yield break;
+
+            NotRunIsRunning = true;
+
+            while (!shiftIsPressed)
+            {
+                yield return new WaitForSeconds(0.5f);
+                SprintScript.Sprint = Mathf.Clamp(SprintScript.Sprint + sprintMalus, 0f, maxSprint);
+                SprintBar.UpdateSprintBar();
+            }
+
+            NotRunIsRunning = false;
         }
     }
 }

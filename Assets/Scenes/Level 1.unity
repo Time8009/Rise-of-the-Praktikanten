@@ -13519,6 +13519,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 493860, guid: a73967be39a7cc74ca310e8a9d9de82d, type: 3}
   m_PrefabInstance: {fileID: 1115412078}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1115801835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+  m_PrefabInstance: {fileID: 1903894429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1115801837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115801835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1120123142 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 133344, guid: dc8f3955c063af240afd23143f496335, type: 3}
@@ -13695,6 +13734,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8050298852831469972, guid: f2ca2cf525df8164099240077a877557, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050298852831469973, guid: f2ca2cf525df8164099240077a877557, type: 3}
+      propertyPath: baseImageColor.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
     - target: {fileID: 8050298853025186810, guid: f2ca2cf525df8164099240077a877557, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -25267,6 +25314,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.388
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.10233452
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.48446655
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.012190649
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9993775
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0050250175
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.03477248
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0032100605
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: far clip plane
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: near clip plane
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
+      propertyPath: orthographic size
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7c343d0e4d87664782a5ec20b9e2a7d, type: 3}
 --- !u!4 &1904889878 stripped
@@ -29976,6 +30067,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprintMalus: 5
   SprintBar: {fileID: 1917378153}
+  RunIsRunning: 0
+  NotRunIsRunning: 0
+  shiftIsPressed: 0
 --- !u!114 &5393215579111688499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30033,6 +30127,11 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 0
+  sprintMalus: 1
+  SprintBar: {fileID: 0}
+  RunIsRunning: 0
+  NotRunIsRunning: 0
+  shiftIsPressed: 0
 --- !u!1001 &7288094137546172433
 PrefabInstance:
   m_ObjectHideFlags: 0
