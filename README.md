@@ -1,4 +1,4 @@
-# 🧟 Rise of the Praktikanten (Archived)
+# 🧟 Rise of the Praktikanten
 
 > A 3D First-Person Zombie Survival & Escape game developed in **Unity** and **C#** during our software development internship.
 
