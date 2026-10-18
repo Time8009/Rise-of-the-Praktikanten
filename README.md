@@ -32,7 +32,7 @@ You find yourself trapped in an eerie corporate building where your ordinary int
 
 ---
 
-## 👥 Development Team & Role
+## 👥 Development Team
 Developed collaboratively by:
 - **Florian Homeier** ([@Time8009](https://github.com/Time8009))
 - **Jan**
